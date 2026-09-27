@@ -237,7 +237,7 @@ services:
     container_name: ${USER}_monitoring-airflow-init
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://mlflow:mlflow@postgres:5432/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://mlflow:mlflow@postgres:5432/mlflow
     command: >
       bash -c "
       airflow db migrate &&
@@ -254,7 +254,7 @@ services:
     container_name: ${USER}_monitoring-airflow-webserver
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://mlflow:mlflow@postgres:5432/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://mlflow:mlflow@postgres:5432/mlflow
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__METRICS__STATSD_ON: 'true'
       AIRFLOW__METRICS__STATSD_HOST: statsd-exporter
